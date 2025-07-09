@@ -1,0 +1,22 @@
+.proportions-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.proportions-title {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+/* Custom styles for recharts text elements */
+.recharts-text {
+    fill: var(--secondary-color);
+    font-size: 0.9rem;
+}

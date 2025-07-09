@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+/* New App Layout */
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    overflow: hidden;
+    display: grid; /* Changé en grid */
+    grid-template-rows: auto 1fr auto; /* Header, Content, Footer */
+    grid-template-areas:
+        "header-area"
+        "content-area"
+        "footer-area";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-area {
+    grid-area: header-area;
+    /* The Header component has its own padding and background */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.content-area {
+    grid-area: content-area;
+    overflow-y: auto; /* Allow vertical scrolling INSIDE this container */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex; /* Allows Tabs component to fill the height */
+}
+
+/* Le composant Footer a sa propre classe .app-footer, mais on le cible par sa zone pour la mise en page principale */
+.app-footer {
+    grid-area: footer-area;
+}
+
+.placeholder-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    padding: 2rem;
+}
+
+/* Main Grid Layout (now inside a tab) */
+.main-grid {
+  width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(12, 1fr);
+
+  grid-template-areas:
+    "vitals   vitals   vitals   main     main     main     main     main     main     chart    chart    chart"
+    "conveyor conveyor conveyor conveyor conveyor conveyor conveyor conveyor ticker   ticker   ticker   ticker"
+    "proportions proportions proportions proportions proportions proportions proportions proportions ticker   ticker   ticker   ticker";
+}
+
+/* Glassmorphism effect for all direct children of the grid */
+.main-grid > * {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  box-sizing: border-box;
+  transition: background 0.3s ease, border 0.3s ease;
+  min-height: 220px; /* Augmente la hauteur de tous les widgets */
+}
+
+.main-grid > *:hover {
+  background: rgba(22, 24, 40, 0.65);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Assigning placeholders to grid areas */
+.vitals-area { grid-area: vitals; }
+.main-area { grid-area: main; }
+.chart-area { grid-area: chart; }
+/* The conveyor-area is now a GRID container for precise height control */
+.conveyor-area { grid-area: conveyor; }
+.proportions-area { grid-area: proportions; }
+.ticker-area { grid-area: ticker; }
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .main-grid {
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "vitals   vitals   main     main     main     main     chart    chart"
+      "conveyor conveyor conveyor conveyor conveyor conveyor conveyor conveyor"
+      "ticker   ticker   ticker   ticker   ticker   ticker   ticker   ticker";
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 992px) {
+  .app-container { padding: 0; }
+  .main-grid {
+    padding: 1rem;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "vitals"
+      "main"
+      "chart"
+      "conveyor"
+      "ticker";
   }
-  to {
-    transform: rotate(360deg);
-  }
+  .main-grid > * { padding: 1rem; }
 }

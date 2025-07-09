@@ -1,0 +1,79 @@
+.ticker-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* This is key for the ticker effect */
+}
+
+.ticker-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.ticker-content {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.ticker-content ul {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* Animation will be added dynamically or via a parent class */
+}
+
+.ticker-content li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.event-icon {
+    font-size: 1rem;
+}
+
+.event-message {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-time {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Add a fade-out effect at the top and bottom */
+.ticker-content::before, .ticker-content::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    z-index: 2;
+}
+
+.ticker-content::before {
+    top: 0;
+    background: linear-gradient(to bottom, var(--background-color), transparent);
+}
+
+.ticker-content::after {
+    bottom: 0;
+    background: linear-gradient(to top, var(--background-color), transparent);
+}

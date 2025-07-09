@@ -1,0 +1,64 @@
+.vitals-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.vitals-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.vital-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.vital-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.vital-icon.rate {
+    color: #ff4d6d;
+    background-color: rgba(255, 77, 109, 0.1);
+}
+
+.vital-icon.db-ok {
+    color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.vital-icon.arduino-ok {
+    color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.vital-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.vital-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.vital-label {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+}

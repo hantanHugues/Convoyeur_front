@@ -1,0 +1,52 @@
+.tabs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* La hauteur est maintenant déterminée par le contenu */
+}
+
+.tabs-nav {
+    display: flex;
+    list-style: none;
+    padding: 0 2rem;
+    margin: 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabs-nav li {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tabs-nav li:hover {
+    color: #fff;
+}
+
+.tabs-nav li.active {
+    color: var(--primary-color);
+}
+
+.tabs-nav li.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+}
+
+.tabs-content {
+    padding: 0;
+    /* flex-grow et overflow sont supprimés pour laisser le parent App.css gérer le scroll */
+}
+
+.tab-pane {
+    width: 100%;
+    /* La hauteur est maintenant déterminée par la grille à l'intérieur */
+}

@@ -1,0 +1,38 @@
+.app-footer {
+  /* La zone est définie dans App.css, ici on gère le style interne */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 30px; /* Augmentation du padding */
+  background-color: rgba(10, 10, 25, 0.75); /* Fond plus présent */
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: #E0E0E0; /* Texte plus clair */
+  font-size: 1em; /* Taille de police lisible */
+  flex-wrap: wrap; /* Passage à la ligne si nécessaire */
+  gap: 30px; /* Espacement augmenté */
+}
+
+.footer-section {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espacement entre texte et logo */
+}
+
+.footer-label {
+  white-space: nowrap;
+  font-weight: 500;
+  opacity: 0.8; /* Légère transparence pour le texte */
+}
+
+.footer-logo {
+  height: 40px; /* Hauteur des logos augmentée */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}

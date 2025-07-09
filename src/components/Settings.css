@@ -1,0 +1,197 @@
+.settings-container {
+    position: relative; /* Pour le positionnement des messages de statut */
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--primary-color);
+}
+
+.settings-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.settings-section {
+    margin-bottom: 2.5rem;
+}
+
+.settings-section-title {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.setting-item-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+/* --- Toggle Switch Styles --- */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.export-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-bg-color);
+    transform: translateY(-2px);
+}
+
+.setting-item label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.setting-item input[type="number"] {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+    font-size: 1rem;
+    max-width: 150px;
+}
+
+.setting-description {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    opacity: 0.8;
+    margin-top: 0.25rem;
+}
+
+.button-danger {
+    background-color: var(--color-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.button-danger:hover {
+    background-color: #a02d2d;
+}
+
+.settings-actions {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.button-primary {
+    background-color: var(--color-blue);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button-primary:hover {
+    background-color: #2a7ab0;
+}
+
+.status-message {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    border: 1px solid;
+    text-align: center;
+}
+
+.status-message.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    border-color: var(--color-green);
+    color: var(--color-green);
+}
+
+.status-message.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: var(--color-red);
+    color: var(--color-red);
+}
+
+.status-message.info {
+    background-color: rgba(0, 168, 255, 0.1);
+    border-color: var(--color-blue);
+    color: var(--color-blue);
+}

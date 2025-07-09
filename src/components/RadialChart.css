@@ -1,0 +1,69 @@
+.radial-chart-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.chart-wrapper {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-data-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Custom Tooltip */
+.custom-tooltip {
+    background: rgba(20, 22, 40, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.custom-tooltip .label {
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.custom-tooltip .desc {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+}
+
+/* Legend styling */
+.recharts-legend-wrapper {
+    bottom: -10px !important; /* Adjust position */
+}
+
+.recharts-legend-wrapper .recharts-legend-item {
+    margin: 0 0.5rem; /* Add spacing between items */
+}
+
+.recharts-legend-wrapper .recharts-legend-item-text {
+    color: var(--secondary-color) !important;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,16 @@
+.main-content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+    height: 100%;
+    width: 100%;
+}
+
+/* Responsive adjustments for the stats grid */
+@media (max-width: 600px) {
+    .main-content-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}

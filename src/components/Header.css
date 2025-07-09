@@ -1,0 +1,81 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem; /* Padding horizontal uniquement */
+    height: 90px; /* Hauteur fixe pour l'en-tête */
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
+}
+
+.logo-title {
+    flex-grow: 1;
+}
+
+.logo-title h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.logo-title h2 {
+    margin: -5px 0 0 3px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.status.connected {
+    color: var(--color-green);
+    box-shadow: 0 0 15px rgba(0, 196, 159, 0.4);
+}
+
+.status svg {
+    font-size: 0.6rem;
+    transition: color 0.3s ease;
+}
+
+.ai-assistant-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.ai-button {
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    margin-left: 1rem; /* Espace par rapport au statut */
+    cursor: pointer;
+}
+
+.ai-button:hover svg {
+    color: var(--primary-color);
+}
+
+.ai-button svg {
+    font-size: 1.5rem; /* Taille de l'icône augmentée */
+    color: #fff;
+    transition: color 0.3s ease;
+}
