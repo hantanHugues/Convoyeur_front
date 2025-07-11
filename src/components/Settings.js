@@ -8,7 +8,7 @@ const Settings = ({ theme, toggleTheme }) => {
     const [status, setStatus] = useState({ message: '', type: '' });
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/settings')
+        axios.get(`${process.env.REACT_APP_API_URL}/api/settings`)
             .then(response => {
                 const fetchedSettings = {
                     stoppageThreshold: response.data.stoppageThreshold / 60000 // Convert ms to minutes
@@ -29,7 +29,7 @@ const Settings = ({ theme, toggleTheme }) => {
 
     const handleSave = () => {
         setStatus({ message: 'Sauvegarde...', type: 'info' });
-        axios.post('http://localhost:5000/api/settings', {
+        axios.post(`${process.env.REACT_APP_API_URL}/api/settings`, {
             stoppageThreshold: settings.stoppageThreshold
         })
         .then(response => {
@@ -44,7 +44,7 @@ const Settings = ({ theme, toggleTheme }) => {
     const handleResetDatabase = () => {
         if (window.confirm("Êtes-vous absolument certain de vouloir réinitialiser la base de données ? Toutes les données seront perdues.")) {
             setStatus({ message: 'Réinitialisation...', type: 'info' });
-            axios.get('http://localhost:5000/api/reset-database')
+            axios.get(`${process.env.REACT_APP_API_URL}/api/reset-database`)
                 .then(response => {
                     setStatus({ message: 'Base de données réinitialisée avec succès.', type: 'success' });
                 })
@@ -98,8 +98,8 @@ const Settings = ({ theme, toggleTheme }) => {
                     <label>Exporter les données</label>
                     <p className="setting-description">Téléchargez l'historique complet des événements de tri au format JSON ou CSV.</p>
                     <div className="export-buttons">
-                        <a href="http://localhost:5000/api/export/events?format=json" className="btn btn-secondary" download>Télécharger en JSON</a>
-                        <a href="http://localhost:5000/api/export/events?format=csv" className="btn btn-secondary" download>Télécharger en CSV</a>
+                        <a href={`${process.env.REACT_APP_API_URL}/api/export/events?format=json`} className="btn btn-secondary" download>Télécharger en JSON</a>
+                        <a href={`${process.env.REACT_APP_API_URL}/api/export/events?format=csv`} className="btn btn-secondary" download>Télécharger en CSV</a>
                     </div>
                 </div>
                 <div className="setting-item">

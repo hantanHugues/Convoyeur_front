@@ -4,7 +4,7 @@ import { FaPaperPlane } from 'react-icons/fa'; // FaMicrophone retiré
 import io from 'socket.io-client';
 import './AIAssistant.css';
 
-const socket = io('http://localhost:5000');
+const socket = io(process.env.REACT_APP_API_URL);
 
 const AIAssistant = ({ messages, setMessages }) => {
     const [alerts, setAlerts] = useState([]);
@@ -47,7 +47,7 @@ const AIAssistant = ({ messages, setMessages }) => {
         setInput('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/ask-gemini', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/ask-gemini`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -11,7 +11,7 @@ const HistoryPage = () => {
     const fetchEvents = async (pageNum) => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/api/events?page=${pageNum}&limit=50`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/events?page=${pageNum}&limit=50`);
             setEvents(prevEvents => [...prevEvents, ...response.data.events]);
             setTotalPages(response.data.totalPages);
         } catch (error) {
@@ -35,7 +35,7 @@ const HistoryPage = () => {
     };
 
     const handleDownloadPDF = () => {
-        window.open('http://localhost:5000/api/export/events?format=pdf', '_blank');
+        window.open(`${process.env.REACT_APP_API_URL}/api/export/events?format=pdf`, '_blank');
     };
 
     return (

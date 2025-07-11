@@ -16,7 +16,6 @@ import Settings from './components/Settings'; // Importer le composant des param
 import HistoryPage from './pages/HistoryPage'; // Importer la page d'historique
 import Footer from './components/Footer/Footer'; // Importer le pied de page
 
-const SERVER_URL = 'http://localhost:5000';
 
 function App() {
     // États pour les données et la connexion
@@ -57,15 +56,15 @@ function App() {
             setEventQueue(prevQueue => [...prevQueue, newEvent]);
         };
 
-        axios.get(`${SERVER_URL}/api/waste-counts`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/waste-counts`)
             .then(response => handleUpdateCounts(response.data))
             .catch(error => console.error("Erreur lors de la récupération des décomptes initiaux:", error));
 
-        axios.get(`${SERVER_URL}/api/events`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/events`)
             .then(response => setEvents(response.data.reverse()))
             .catch(error => console.error("Erreur lors de la récupération des événements initiaux:", error));
 
-        const socket = io(SERVER_URL);
+        const socket = io(process.env.REACT_APP_API_URL);
 
         socket.on('connect', () => {
             setIsConnected(true);
