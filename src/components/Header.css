@@ -5,9 +5,8 @@
     width: 100%;
     padding: 0 2rem; /* Padding horizontal uniquement */
     height: 90px; /* Hauteur fixe pour l'en-tête */
-    background: rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background: var(--widget-bg-color, rgba(255, 255, 255, 0.1));
+    border-bottom: 1px solid var(--border-color);
     box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
 }
 
@@ -76,6 +75,43 @@
 
 .ai-button svg {
     font-size: 1.5rem; /* Taille de l'icône augmentée */
-    color: #fff;
+    color: var(--secondary-color);
     transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        height: auto; /* Hauteur automatique pour s'adapter au contenu */
+        padding: 0.75rem 1rem; /* Padding réduit */
+        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+        justify-content: center; /* Centre les éléments quand ils sont sur plusieurs lignes */
+        gap: 0.5rem;
+    }
+
+    .logo-title {
+        flex-grow: 0;
+        text-align: center; /* Centre le titre */
+        width: 100%; /* Prend toute la largeur */
+    }
+
+    .logo-title h1 {
+        font-size: 1.5rem; /* Taille du titre réduite */
+    }
+
+    .logo-title h2 {
+        font-size: 0.7rem; /* Taille du sous-titre réduite */
+    }
+
+    .status {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .ai-button svg {
+        font-size: 1.3rem;
+    }
+
+    .ai-assistant-button-container {
+        margin-left: 0.5rem;
+    }
 }

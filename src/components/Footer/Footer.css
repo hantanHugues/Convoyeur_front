@@ -36,3 +36,19 @@
 .footer-logo:hover {
     transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+    .app-footer {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .footer-logo {
+        height: 30px;
+    }
+
+    .footer-label {
+        font-size: 0.9em;
+    }
+}

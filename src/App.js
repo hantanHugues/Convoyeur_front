@@ -19,6 +19,7 @@ import Footer from './components/Footer/Footer'; // Importer le pied de page
 
 function App() {
     // États pour les données et la connexion
+    const [activeTab, setActiveTab] = useState('Tableau de Bord');
     const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
     const [isConnected, setIsConnected] = useState(false);
     const [wasteCounts, setWasteCounts] = useState({});
@@ -124,16 +125,16 @@ function App() {
                 <Header isConnected={isConnected} />
             </div>
             <div className="content-area">
-                <Tabs>
+                <Tabs activeTab={activeTab} setActiveTab={setActiveTab}>
                     <div label="Tableau de Bord">
                         <main className="main-grid">
-                            <div className="vitals-area">
+                            <div className="vitals-area widget">
                                 <Vitals events={events} />
                             </div>
                             <div className="main-area">
                                 <MainContent wasteCounts={wasteCounts} />
                             </div>
-                            <div className="chart-area">
+                            <div className="chart-area widget">
                                 <RadialChart data={wasteCounts} />
                             </div>
                             <div className="conveyor-area widget">
@@ -154,7 +155,7 @@ function App() {
                         <AIAssistant messages={chatMessages} setMessages={setChatMessages} />
                     </div>
                     <div label="Paramètres">
-                        <Settings theme={theme} toggleTheme={toggleTheme} />
+                        <Settings theme={theme} toggleTheme={toggleTheme} activeTab={activeTab} />
                     </div>
                 </Tabs>
             </div>

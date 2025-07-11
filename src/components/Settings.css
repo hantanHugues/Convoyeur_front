@@ -1,40 +1,208 @@
+/* Conteneur principal de la page des paramètres */
 .settings-container {
-    position: relative; /* Pour le positionnement des messages de statut */
-    padding: 2rem;
+    padding: 2rem 3rem;
+    width: 95%;
     max-width: 900px;
-    margin: 0 auto;
-    color: var(--primary-color);
+    margin: 2rem auto;
+    background: rgba(10, 25, 47, 0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color-primary);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .settings-title {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #fff;
+    font-weight: 600;
 }
 
+/* Sections individuelles (Apparence, Admin) */
 .settings-section {
     margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.3s ease;
+}
+
+.settings-section:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .settings-section-title {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e0e0e0;
+    font-weight: 500;
 }
 
-.setting-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.settings-subsection-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #c5c5c5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Styles pour les éléments de formulaire */
+.setting-item, .setting-item-horizontal {
+    margin-bottom: 1.5rem;
 }
 
 .setting-item-horizontal {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+}
+
+.setting-item label, .setting-item-horizontal span {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.settings-input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.settings-input:focus {
+    outline: none;
+    border-color: rgba(74, 144, 226, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+}
+
+.setting-description {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 5px;
+}
+
+/* Styles pour les boutons */
+.btn, .settings-container button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.btn:hover, .settings-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary, .settings-container .btn-primary {
+    background: linear-gradient(145deg, #4a90e2, #2a6cb5);
+}
+
+.btn-danger, .settings-container .btn-danger {
+    background: linear-gradient(145deg, #e24a4a, #b52a2a);
+}
+
+.btn-secondary, .settings-container .btn-secondary {
+    background: linear-gradient(145deg, #6c757d, #5a6268);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.admin-login-form .btn-primary {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.admin-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 2.5rem 0;
+}
+
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-container .settings-input {
+    padding-right: 45px; /* Espace pour l'icône */
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none; /* Empêche la sélection du texte de l'emoji */
+    font-size: 1.2rem;
+}
+
+
+
+/* Styles pour les messages de statut */
+.status-message {
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    border: 1px solid;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.status-message.success {
+    background-color: rgba(40, 167, 69, 0.15);
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.status-message.error {
+    background-color: rgba(220, 53, 69, 0.15);
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.status-message.info {
+    background-color: rgba(23, 162, 184, 0.15);
+    border-color: #17a2b8;
+    color: #17a2b8;
 }
 
 /* --- Toggle Switch Styles --- */
@@ -58,7 +226,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.2);
     transition: .4s;
     border-radius: 34px;
 }
@@ -76,122 +244,94 @@
 }
 
 input:checked + .slider {
-    background-color: var(--accent-color);
+    background-color: #4a90e2;
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px var(--accent-color);
+    box-shadow: 0 0 1px #4a90e2;
 }
 
 input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-.export-buttons {
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
     display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--widget-bg-color);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
     gap: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
 }
 
-.btn-secondary {
-    background-color: var(--secondary-bg-color);
-    color: var(--text-color);
-    padding: 0.6rem 1.2rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
+@media (max-width: 768px) {
+    .settings-container {
+        padding: 1rem;
+        margin: 1rem 0;
+        width: 100%;
+        border-radius: 0;
+    }
 
-.btn-secondary:hover {
-    background-color: var(--hover-bg-color);
-    transform: translateY(-2px);
-}
+    .settings-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
 
-.setting-item label {
-    font-weight: bold;
-    font-size: 1rem;
-}
+    .settings-section {
+        padding: 1.5rem;
+    }
 
-.setting-item input[type="number"] {
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    color: var(--primary-color);
-    font-size: 1rem;
-    max-width: 150px;
-}
+    .settings-section-title {
+        font-size: 1.3rem;
+    }
 
-.setting-description {
-    font-size: 0.9rem;
-    color: var(--secondary-color);
-    opacity: 0.8;
-    margin-top: 0.25rem;
-}
+    .setting-item-horizontal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
 
-.button-danger {
-    background-color: var(--color-red);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    align-self: flex-start;
-}
+    .admin-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-.button-danger:hover {
-    background-color: #a02d2d;
-}
+    .admin-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
 
-.settings-actions {
-    margin-top: 2rem;
-    border-top: 1px solid var(--border-color);
-    padding-top: 2rem;
-}
+    .modal-content {
+        padding: 1.5rem;
+        width: 90%;
+    }
 
-.button-primary {
-    background-color: var(--color-blue);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
+    .modal-actions {
+        flex-direction: column;
+    }
 
-.button-primary:hover {
-    background-color: #2a7ab0;
-}
-
-.status-message {
-    padding: 12px 18px;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    font-weight: 500;
-    border: 1px solid;
-    text-align: center;
-}
-
-.status-message.success {
-    background-color: rgba(40, 167, 69, 0.1);
-    border-color: var(--color-green);
-    color: var(--color-green);
-}
-
-.status-message.error {
-    background-color: rgba(220, 53, 69, 0.1);
-    border-color: var(--color-red);
-    color: var(--color-red);
-}
-
-.status-message.info {
-    background-color: rgba(0, 168, 255, 0.1);
-    border-color: var(--color-blue);
-    color: var(--color-blue);
+    .modal-actions .btn {
+        width: 100%;
+    }
 }

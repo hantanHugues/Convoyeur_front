@@ -1,8 +1,9 @@
 .tabs-container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    /* La hauteur est maintenant déterminée par le contenu */
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr; /* Ligne pour la nav, ligne flexible pour le contenu */
+    overflow: hidden; /* Empêche tout débordement du conteneur lui-même */
 }
 
 .tabs-nav {
@@ -23,7 +24,7 @@
 }
 
 .tabs-nav li:hover {
-    color: #fff;
+    color: var(--primary-color);
 }
 
 .tabs-nav li.active {
@@ -42,11 +43,32 @@
 }
 
 .tabs-content {
+    overflow-y: auto; /* Le défilement est maintenant géré par la grille */
     padding: 0;
-    /* flex-grow et overflow sont supprimés pour laisser le parent App.css gérer le scroll */
+    min-height: 0; /* Sécurité pour le contenu dans une grille */
 }
 
 .tab-pane {
     width: 100%;
-    /* La hauteur est maintenant déterminée par la grille à l'intérieur */
+    height: auto; /* S'assure que le conteneur grandit avec son contenu */
+}
+
+@media (max-width: 768px) {
+    .tabs-nav {
+        padding: 0 1rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        /* Masquer la barre de défilement pour un look plus propre */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .tabs-nav::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+    }
+
+    .tabs-nav li {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
 }

@@ -34,18 +34,24 @@ const HistoryPage = () => {
         }
     };
 
-    const handleDownloadPDF = () => {
-        window.open(`${process.env.REACT_APP_API_URL}/api/export/events?format=pdf`, '_blank');
-    };
+
 
     return (
         <div className="history-page">
             <div className="history-container">
                 <div className="header">
                     <h1>Journal des Événements</h1>
-                    <button onClick={handleDownloadPDF} className="download-btn">
-                        Exporter en PDF
-                    </button>
+                    <div className="export-buttons">
+                        <a href={`${process.env.REACT_APP_API_URL}/api/export/events?format=pdf`} target="_blank" rel="noopener noreferrer" className="download-btn">
+                            PDF
+                        </a>
+                        <a href={`${process.env.REACT_APP_API_URL}/api/export/events?format=csv`} target="_blank" rel="noopener noreferrer" className="download-btn">
+                            CSV
+                        </a>
+                        <a href={`${process.env.REACT_APP_API_URL}/api/export/events?format=json`} target="_blank" rel="noopener noreferrer" className="download-btn">
+                            JSON
+                        </a>
+                    </div>
                 </div>
 
                 <div className="table-container">

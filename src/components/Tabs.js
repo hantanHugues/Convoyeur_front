@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './Tabs.css';
 
-const Tabs = ({ children }) => {
-    const [activeTab, setActiveTab] = useState(children[0].props.label);
+const Tabs = ({ children, activeTab, setActiveTab }) => {
 
     const handleClick = (e, newActiveTab) => {
         e.preventDefault();

@@ -84,13 +84,10 @@
 .color-dot.red { background-color: var(--color-red); }
 .color-dot.blue { background-color: var(--color-blue); }
 
-.load-more-container {
-    padding: 2rem;
-    text-align: center;
-}
 
+
+/* Style commun pour les boutons principaux */
 .load-more-btn, .download-btn {
-    background-color: var(--color-blue);
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -99,9 +96,15 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none; /* Au cas où ce sont des liens */
 }
 
-.load-more-btn:hover, .download-btn:hover {
+/* Style spécifique au bouton de téléchargement */
+.download-btn {
+    background-color: var(--color-blue);
+}
+
+.download-btn:hover {
     background-color: #008cdd;
 }
 
@@ -134,4 +137,9 @@
     text-align: center;
     padding: 2rem;
     color: var(--text-secondary);
+}
+
+.export-buttons {
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
 }

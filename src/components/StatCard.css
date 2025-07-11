@@ -4,14 +4,15 @@
     align-items: center;
     gap: 1.5rem;
     padding: 1rem 1.5rem;
-    background: rgba(38, 40, 63, 0.4);
+    background: var(--widget-bg-color, rgba(38, 40, 63, 0.4)); /* Fallback pour le thème sombre si la variable n'est pas définie */
     border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow-color, rgba(0, 0, 0, 0.1));
 }
 
-.stat-card::before {
+[data-theme='dark'] .stat-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -25,11 +26,14 @@
 
 .stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px var(--shadow-color, rgba(0, 0, 0, 0.2));
+}
+
+[data-theme='dark'] .stat-card:hover {
     background: rgba(38, 40, 63, 0.6);
 }
 
-.stat-card:hover::before {
+[data-theme='dark'] .stat-card:hover::before {
     opacity: 0.25;
 }
 
